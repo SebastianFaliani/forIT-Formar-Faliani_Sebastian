@@ -5,13 +5,16 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js"
+    "backend": "nodemon app.js",
+    "frontend": "cd.. && cd frontend && npm run dev --prefix ",
+    "start": "concurrently --kill-others-on-fail \"npm run backend\" \"npm run frontend\" "
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "concurrently": "^9.1.2",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
