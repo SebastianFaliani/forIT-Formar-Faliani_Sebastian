@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { deleteTask, getTasks, Task } from "../../services/taskServices";
+import { Link,useNavigate } from "react-router-dom";
+import { deleteTask, getTasks, Task, updateTask } from "../../services/taskServices";
 import puntos from "../../assets/tres_puntos.png";
 import Button from "../../components/Button/Button";
 import TaskMenu from "../../components/TaskMenu/TaskMenu";
 
 const Tasks = () => {
-  const location = useLocation();
+  const navigate = useNavigate();
   const [tasks, setTasks] = useState<Task[]>([]);
   const [selectedButton, setSelectedButton] = useState<string | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -27,8 +27,6 @@ const Tasks = () => {
     setSelectedButton(buttonLabel);
   };
 
-
-
   const handleMenuOpen = (event: React.MouseEvent, task: Task) => {
     setMenuPosition({ x: event.pageX, y: event.pageY });
     setSelectedTask(task);
@@ -36,22 +34,15 @@ const Tasks = () => {
   };
 
   const handleDeleteTask = async (task: Task) => {
-    console.log(task);
-
     task.id && await deleteTask(task.id);
-
     setTasks((prevTasks) => prevTasks.filter((t) => t.id !== task.id));
-
   };
-  
+
   const handleEditTask = async (task: Task) => {
     console.log(task);
-
-   /*  task.id && await deleteTask(task.id);
-
-    setTasks((prevTasks) => prevTasks.filter((t) => t.id !== task.id)); */
-
-  };
+    
+    navigate("/new-tasks", { state: { isCreate: false, task } });
+  }
 
 
   return (
@@ -82,6 +73,7 @@ const Tasks = () => {
           <Link
             className="flex"
             to="/new-tasks"
+            state= {{ isCreate: true }}
           >
             <button onClick={() => setIsCreate(true)} className="bg-[#0061FA] text-white p-[2px] text-[10px] w-[150px] h-[30px] rounded-sm"> + Nueva Tarea</button>
           </Link>

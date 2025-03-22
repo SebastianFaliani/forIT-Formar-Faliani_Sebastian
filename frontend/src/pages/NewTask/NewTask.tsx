@@ -1,27 +1,33 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import volver from "../../assets/volver.png";
-import { createTask, Task } from "../../services/taskServices";
+import { createTask, Task, updateTask } from "../../services/taskServices";
 
-interface NewTaskProps {
-  isCreate:  boolean;
-  task?:Task
-}
-
-const NewTask:React.FC<NewTaskProps> = ({isCreate, task}) => {
+const NewTask: React.FC = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const { isCreate, task } = location.state || {}
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [errors, setErrors] = useState<Task>({});
 
+
+  useEffect(() => {
+    if (!isCreate) {
+      setTitle(task.title)
+      setDescription(task.description)
+    }
+  }, [])
+
+
   const validateForm = () => {
-    const newErrors:Task = {}; 
+    const newErrors: Task = {};
     if (!title.trim()) {
       newErrors.title = "El título es obligatorio.";
     } else if (title.length < 3) {
       newErrors.title = "El título debe tener al menos 3 caracteres.";
     }
-    
+
     if (!description.trim()) {
       newErrors.description = "La descripción es obligatoria.";
     } else if (description.length < 5) {
@@ -29,19 +35,23 @@ const NewTask:React.FC<NewTaskProps> = ({isCreate, task}) => {
     }
 
     setErrors(newErrors);
-    return Object.keys(newErrors).length === 0; // Retorna true si no hay errores
+    return Object.keys(newErrors).length === 0;
   };
- 
-    console.log(isCreate);
-
 
   const handleSaveTask = async (e) => {
     e.preventDefault();
-    
-    if (!validateForm()) return; // Si hay errores, no guarda
 
-    const task = { title, description, completed: false };
-    await createTask(task);
+    if (!validateForm()) return;
+
+    if (isCreate) {
+      const newTask = { title, description, completed: false };
+      await createTask(newTask);
+    }else{
+      const newTask = { title, description };
+      await updateTask(task.id, newTask);
+
+    }
+
     navigate("/tasks");
   };
 

@@ -8,6 +8,7 @@ export interface Task {
     title?: string;
     description?: string;
     completed?: boolean;
+    createdAt?:Date;
 }
 
 const getTasks = async (): Promise<Task[]> => {
