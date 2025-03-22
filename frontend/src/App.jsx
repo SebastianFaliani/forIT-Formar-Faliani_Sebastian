@@ -1,9 +1,10 @@
-import Layout from "./components/Layout/Layout";
+
+import Routers from "./Routers/routers";
 
 function App() {
   return (
     <div >
-      <Layout/>
+      <Routers/>
     </div>
   );
 }
