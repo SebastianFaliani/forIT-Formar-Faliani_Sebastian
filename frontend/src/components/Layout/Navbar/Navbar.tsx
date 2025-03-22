@@ -11,7 +11,7 @@ const Navbar = () => (
         </a>
       </li>
       <li className="">
-        <a href="/">
+        <a href="/tasks">
           <img src={tasks} alt="" className="mr-4" />
 
         </a>

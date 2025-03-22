@@ -10,7 +10,7 @@ const Button: React.FC<ButtonProps> = ({ buttonLabel, isSelected, onClick }) => 
   return (
     <button
       onClick={onClick}
-      className={`m-2 p-[2px] text-[10px] w-[80px] rounded-lg ${isSelected ? 'bg-black text-white' : 'bg-white text-black'}`}
+      className={`m-2 p-[2px] text-[11px] w-[80px] rounded-lg ${isSelected ? 'bg-black text-white' : 'bg-white text-black'}`}
     >
       {buttonLabel}
     </button>

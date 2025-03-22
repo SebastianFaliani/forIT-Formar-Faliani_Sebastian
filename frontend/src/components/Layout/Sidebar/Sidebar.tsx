@@ -20,13 +20,11 @@ const Sidebar = () => {
         <div className="w-[45px] p-2">
           <img src={login} alt="Perfil" className="mr-4 rounded-full" />
         </div>
-        <div className="text-white text-[10px] p-2">
+        <div className="text-white text-[12px] p-2">
           <p>Faliani Sebastian</p>
           <p>Developer</p>
         </div>
       </div>
-
-      {/* Menú de navegación */}
       <nav className="navbar">
         <ul className="text-white text-xs pl-2">
           <li className="pl-2">
@@ -36,7 +34,7 @@ const Sidebar = () => {
                 onClick={() => setActiveLink("/")}
               >
               <img src={home} alt="Home" className="mr-4" />
-              Home
+              Inicio
             </Link>
           </li>
           <li className="pt-4 pl-2">

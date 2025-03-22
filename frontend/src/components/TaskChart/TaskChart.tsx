@@ -7,7 +7,7 @@ interface TaskPieChartProps {
   incomplete: number;
 }
 
-const COLORS = ["#A2FDB1", "#F7BFF5"]; // Verde para completadas, rojo para incompletas
+const COLORS = ["#A2FDB1", "#F7BFF5"]; 
 
 const TaskPieChart: React.FC<TaskPieChartProps> = ({ total, completed, incomplete }) => {
   const data = [
@@ -37,7 +37,7 @@ const TaskPieChart: React.FC<TaskPieChartProps> = ({ total, completed, incomplet
       </div>
 
       {/* Gráfico */}
-      <div className="w-44 h-44">
+      <div className="w-60 h-60">
         <ResponsiveContainer width="100%" height="100%">
           <PieChart>
             <Pie

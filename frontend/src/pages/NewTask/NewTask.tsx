@@ -2,54 +2,39 @@ import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import volver from "../../assets/volver.png";
 import { createTask, Task, updateTask } from "../../services/taskServices";
+import { validateTaskForm } from "../../validations/taskValidator";
 
 const NewTask: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { isCreate, task } = location.state || {}
+  const { isCreate, task } = location.state || {};
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [errors, setErrors] = useState<Task>({});
 
-
   useEffect(() => {
     if (!isCreate) {
-      setTitle(task.title)
-      setDescription(task.description)
+      setTitle(task.title);
+      setDescription(task.description);
     }
-  }, [])
-
-
-  const validateForm = () => {
-    const newErrors: Task = {};
-    if (!title.trim()) {
-      newErrors.title = "El título es obligatorio.";
-    } else if (title.length < 3) {
-      newErrors.title = "El título debe tener al menos 3 caracteres.";
-    }
-
-    if (!description.trim()) {
-      newErrors.description = "La descripción es obligatoria.";
-    } else if (description.length < 5) {
-      newErrors.description = "La descripción debe tener al menos 5 caracteres.";
-    }
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
+  }, [isCreate, task]);
 
   const handleSaveTask = async (e) => {
     e.preventDefault();
 
-    if (!validateForm()) return;
+    const formErrors = validateTaskForm(title, description); 
+
+    if (Object.keys(formErrors).length > 0) {
+      setErrors(formErrors); 
+      return;
+    }
 
     if (isCreate) {
       const newTask = { title, description, completed: false };
       await createTask(newTask);
-    }else{
-      const newTask = { title, description };
-      await updateTask(task.id, newTask);
-
+    } else {
+      const updatedTask = { title, description };
+      await updateTask(task.id, updatedTask);
     }
 
     navigate("/tasks");
@@ -135,3 +120,4 @@ const NewTask: React.FC = () => {
 };
 
 export default NewTask;
+

@@ -46,7 +46,6 @@ const TaskMenu: React.FC<TaskMenuProps> = ({ isOpen, onClose, position, onDelete
         </button>
       </div>
 
-      {/* Modal de Confirmación */}
       <ConfirmDeleteModal
         isOpen={isDeleteModalOpen}
         onClose={() => {
