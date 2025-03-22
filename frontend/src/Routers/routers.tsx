@@ -1,18 +1,20 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter , Routes, Route } from "react-router-dom";
 import Layout from "../components/Layout/Layout";
-import Tasks from "../components/Tasks/Tasks";
-import Home from "../components/Home/Home";
+import Tasks from "../pages/Tasks/Tasks";
+import Home from "../pages/Home/Home";
+import NewTask from "../pages/NewTask/NewTask";
 
 const Routers = () => (
-  <Router>
+  <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
     <Layout>
-      <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/tasks" exact component={Tasks} />
-      </Switch>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/tasks" element={<Tasks />} />
+        <Route path="/new-tasks" element={<NewTask />} />
+      </Routes>
     </Layout>
-  </Router>
+  </BrowserRouter>
 );
 
 export default Routers;

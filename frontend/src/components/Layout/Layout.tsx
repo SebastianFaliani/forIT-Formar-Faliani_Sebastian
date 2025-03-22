@@ -2,18 +2,18 @@ import React from "react";
 import Header from "./Header/Header";
 import Navbar from "./Navbar/Navbar";
 import Sidebar from "./Sidebar/Sidebar";
-import Main from "../Tasks/Tasks";
+import Main from "../../pages/Tasks/Tasks";
 
  const Layout: React.FC<any> = ({ children }) => (
 
-  <div >
+  <div className="h-screen">
 
 
-    <div className="flex flex-1">
-      <div className="hidden md:block">
+    <div className="flex flex-1 bg-gray-700">
+      <div className="hidden md:block ">
         <Sidebar />
       </div>
-      <div className="w-full flex flex-col h-screen" >
+      <div className="w-full flex flex-col bg-white" >
         <Header />
         {children}
         

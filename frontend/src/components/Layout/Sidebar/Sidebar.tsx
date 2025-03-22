@@ -15,7 +15,7 @@ const Sidebar = () => {
   }, [location]);
 
   return (
-    <aside className="bg-gray-700 h-screen w-50 pt-3">
+    <aside className="bg-gray-700 h-screen  w-50 pt-3">
       <div className="h-20 flex ">
         <div className="w-[45px] p-2">
           <img src={login} alt="Perfil" className="mr-4 rounded-full" />

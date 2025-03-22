@@ -1,4 +1,4 @@
-import Task from '../models/Task.js'; // Importar el modelo Task
+import Task from '../models/Task.js'; 
 
 const tasks = [
   {
@@ -52,4 +52,3 @@ export const insertTasks = async () => {
   }
 };
 
-insertTasks();

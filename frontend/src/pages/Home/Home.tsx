@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getTasks, Task } from "../../services/taskServices";
-import TaskPieChart from "./TaskChart/TaskChart";
+import TaskPieChart from "../../components/TaskChart/TaskChart";
 
 const Home = () => {
   const [tasks, setTasks] = useState<Task[]>([]);
@@ -13,7 +13,6 @@ const Home = () => {
     fetchTasks();
   }, []);
 
-  // Calculamos las tareas aquí, fuera del useEffect
   const totalTasks = tasks.length;
   const completedTasks = tasks.filter(task => task.completed).length;
   const incompleteTasks = totalTasks - completedTasks;

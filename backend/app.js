@@ -5,11 +5,14 @@ import taskRoutes from './routers/taskRoutes.js';
 import { loadTasks } from './config/config.js';
 import error from './middlewares/errorMiddleware.js';
 
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 const initializeServer = async () => {
   await loadTasks(); 
+  
+  
   app.use(cors());
   app.use(morgan('dev'));
   app.use(express.json());

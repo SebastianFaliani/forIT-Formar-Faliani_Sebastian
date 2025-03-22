@@ -4,10 +4,10 @@ import CONFIG from "./baseURL/config";
 const BASE_URL = `${CONFIG.BASE_URL}/api/tasks`;
 
 export interface Task {
-    id: number;
-    title: string;
-    description: string;
-    completed: boolean;
+    id?: number;
+    title?: string;
+    description?: string;
+    completed?: boolean;
 }
 
 const getTasks = async (): Promise<Task[]> => {

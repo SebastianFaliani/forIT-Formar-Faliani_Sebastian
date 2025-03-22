@@ -18,7 +18,7 @@ const TaskPieChart: React.FC<TaskPieChartProps> = ({ total, completed, incomplet
   return (
     <div className="bg-white shadow-md p-4 rounded-lg flex items-center w-full max-w-md">
       {/* Sección de leyendas */}
-      <div className="mr-6">
+      <div className="mr-6 ">
         <h2 className="text-lg font-semibold mb-4">Estado de Tareas</h2>
         <div className="space-y-2 text-sm">
           <p className="flex items-center">
