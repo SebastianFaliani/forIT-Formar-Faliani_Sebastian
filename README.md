@@ -28,14 +28,14 @@ Este proyecto es una aplicación desarrollada para el reto de ForIT 2025.
 ### Desktop
 
 
-![Captura Desktop](/frontend/src/assets/Document/Desktop_Inicio.png){ width=300 }
-![Captura Desktop](/frontend/src/assets/Document/Desktop_Tareas.png){ width=300 }
-![Captura Desktop](/frontend/src/assets/Document/Desktop_Detalle.png){ width=300 }
-![Captura Desktop](/frontend/src/assets/Document/Desktop_Agregar_editar.png){ width=300 }
-![Captura Desktop](/frontend/src/assets/Document/Desktop_Estado.png){ width=300 }
-![Captura Desktop](/frontend/src/assets/Document/Desktop_Eliminar.png){ width=300 }
-![Captura Desktop](/frontend/src/assets/Document/Desktop_Filtros.png){ width=300 }
-![Captura Desktop](/frontend/src/assets/Document/Desktop_404.png){ width=300 }
+![Captura Desktop](/frontend/src/assets/Document/Desktop_Inicio.png)
+![Captura Desktop](/frontend/src/assets/Document/Desktop_Tareas.png)
+![Captura Desktop](/frontend/src/assets/Document/Desktop_Detalle.png)
+![Captura Desktop](/frontend/src/assets/Document/Desktop_Agregar_editar.png)
+![Captura Desktop](/frontend/src/assets/Document/Desktop_Estado.png)
+![Captura Desktop](/frontend/src/assets/Document/Desktop_Eliminar.png)
+![Captura Desktop](/frontend/src/assets/Document/Desktop_Filtros.png)
+![Captura Desktop](/frontend/src/assets/Document/Desktop_404.png)
 
 ### Mobile
 
