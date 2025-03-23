@@ -3,16 +3,15 @@ import cors from 'cors';
 import morgan from 'morgan';
 import taskRoutes from './routers/taskRoutes.js';
 import { loadTasks } from './config/config.js';
+//import { insertTasks } from './script/insertTasks.js';
 import error from './middlewares/errorMiddleware.js';
-
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 const initializeServer = async () => {
   await loadTasks(); 
-  
-  
+  //await insertTasks(); 
   app.use(cors());
   app.use(morgan('dev'));
   app.use(express.json());

@@ -48,12 +48,15 @@ const NewTask: React.FC = () => {
 
   return (
     <main className="h-full p-4 bg-[#DCF4EE]">
+      <div>
+        
+      </div>
       <div className="pb-2">
         <h1 className="text-2xl font-semibold mb-4">Tareas</h1>
       </div>
       <div className="overflow-x-auto bg-[#DCF4EE]">
-        <div className="flex justify-between p-2">
-          <div className="flex gap-4">
+        <div className="flex flex-col justify-between p-2 sm:flex-row">
+          <div className="flex gap-4 ">
             <button
               onClick={() => navigate("/tasks")}
               className="flex items-center bg-white border border-gray-200 p-[2px] text-[10px] w-[80px] h-[30px] rounded-sm"

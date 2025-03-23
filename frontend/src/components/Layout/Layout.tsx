@@ -2,7 +2,6 @@ import React from "react";
 import Header from "./Header/Header";
 import Navbar from "./Navbar/Navbar";
 import Sidebar from "./Sidebar/Sidebar";
-import Main from "../../pages/Tasks/Tasks";
 
 const Layout: React.FC<any> = ({ children }) => (
   <div className="h-screen">
@@ -13,7 +12,7 @@ const Layout: React.FC<any> = ({ children }) => (
       <div className="w-full flex flex-col bg-white" >
         <Header />
         {children}
-        <div className="block md:hidden">
+        <div className="block md:hidden fixed bottom-0 left-0 w-full z-50">
           <Navbar />
         </div>
       </div>
