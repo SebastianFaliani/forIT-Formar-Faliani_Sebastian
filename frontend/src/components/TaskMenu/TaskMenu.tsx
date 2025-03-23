@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import ConfirmDeleteModal from "./ConfirmDeleteModal";
 import edit from "../../assets/edit.png";
 import borrar from "../../assets/delete.png";
+import eye from "../../assets/eye.png";
 import { Task } from "../../services/taskServices";
 
 interface TaskMenuProps {
@@ -11,9 +12,10 @@ interface TaskMenuProps {
   position: { x: number; y: number };
   onDelete: () => void;
   onEdit: () => void;
+  onDetail: () => void;
 }
 
-const TaskMenu: React.FC<TaskMenuProps> = ({ isOpen, onClose, position, onDelete,  onEdit }) => {
+const TaskMenu: React.FC<TaskMenuProps> = ({ isOpen, onClose, position, onDelete, onEdit,onDetail }) => {
 
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
 
@@ -29,14 +31,20 @@ const TaskMenu: React.FC<TaskMenuProps> = ({ isOpen, onClose, position, onDelete
           transform: "translate(-50%, 0)",
         }}
       >
-          <button
-             onClick={() => onEdit()} 
-            className="flex w-full text-left text-[10px] px-4 py-2 text-xs hover:bg-gray-200 rounded"
-          >
-            <img src={edit} alt="" className="mr-4 w-[10px] h-auto object-contain" />
-            Editar Tarea
-          </button>
-        
+        <button
+          onClick={() => onDetail()}
+          className="flex w-full text-left text-[10px] px-4 py-2 text-xs hover:bg-gray-200 rounded font-bold"
+        >
+          <img src={eye} alt="" className="mr-4 w-[14px] h-auto object-contain" />
+          Ver detalles
+        </button>
+        <button
+          onClick={() => onEdit()}
+          className="flex w-full text-left text-[10px] px-4 py-2 text-xs hover:bg-gray-200 rounded"
+        >
+          <img src={edit} alt="" className="mr-4 w-[10px] h-auto object-contain" />
+          Editar Tarea
+        </button>
         <button
           onClick={() => setIsDeleteModalOpen(true)}
           className="flex w-full text-left text-[10px] px-4 py-2 text-xs hover:bg-red-200 rounded text-red-600"

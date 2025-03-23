@@ -4,7 +4,7 @@ import volver from "../../assets/volver.png";
 import { createTask, Task, updateTask } from "../../services/taskServices";
 import { validateTaskForm } from "../../validations/taskValidator";
 
-const NewTask: React.FC = () => {
+const TaskForm: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { isCreate, task } = location.state || {};
@@ -122,5 +122,5 @@ const NewTask: React.FC = () => {
   );
 };
 
-export default NewTask;
+export default TaskForm;
 

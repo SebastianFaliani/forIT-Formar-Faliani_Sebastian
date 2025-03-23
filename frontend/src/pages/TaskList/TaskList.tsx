@@ -5,7 +5,7 @@ import puntos from "../../assets/tres_puntos.png";
 import Button from "../../components/Button/Button";
 import TaskMenu from "../../components/TaskMenu/TaskMenu";
 
-const Tasks = () => {
+const TaskList = () => {
   const navigate = useNavigate();
   const [tasks, setTasks] = useState<Task[]>([]);
   const [tasksOrigin, setTasksOrigin] = useState<Task[]>([]);
@@ -84,6 +84,10 @@ const Tasks = () => {
   const handleEditTask = async (task: Task) => {
     navigate("/new-tasks", { state: { isCreate: false, task } });
   };
+  
+  const handleDetailTask = async (task: Task) => {
+    navigate("/detail", { state: {  task } });
+  };
 
   const indexOfLastTask = currentPage * tasksPerPage;
   const indexOfFirstTask = indexOfLastTask - tasksPerPage;
@@ -156,6 +160,7 @@ const Tasks = () => {
                     position={menuPosition}
                     onDelete={() => selectedTask && handleDeleteTask(selectedTask)}
                     onEdit={() => selectedTask && handleEditTask(selectedTask)}
+                    onDetail={() => selectedTask && handleDetailTask(selectedTask)}
                   />
                 </td>
               </tr>
@@ -185,4 +190,4 @@ const Tasks = () => {
   );
 };
 
-export default Tasks;
+export default TaskList;
