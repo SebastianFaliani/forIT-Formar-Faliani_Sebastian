@@ -31,7 +31,7 @@ Este proyecto es una aplicación desarrollada para el reto de ForIT 2025.
 ![Captura Desktop](/frontend/src/assets/Document/Desktop_Inicio.png)
 ![Captura Desktop](/frontend/src/assets/Document/Desktop_Tareas.png)
 ![Captura Desktop](/frontend/src/assets/Document/Desktop_Detalle.png)
-![Captura Desktop](/frontend/src/assets/Document/Desktop_Agregar_editar.png)
+![Captura Desktop](/frontend/src/assets/Document/Desktop_Agregar_Editar.png)
 ![Captura Desktop](/frontend/src/assets/Document/Desktop_Estado.png)
 ![Captura Desktop](/frontend/src/assets/Document/Desktop_Eliminar.png)
 ![Captura Desktop](/frontend/src/assets/Document/Desktop_Filtros.png)
