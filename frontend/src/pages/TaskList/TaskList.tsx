@@ -143,7 +143,7 @@ const TaskList = () => {
                 <td className="px-4 py-2">
                   <button
                     onClick={() => handleButtonTaskClick(task)}
-                    className={`p-[2px] text-[10px] w-[80px] rounded-lg inline-block text-center ${task.completed ? "bg-[#B4FEC0] text-[#0E6128]" : "bg-[#FFDFFE] text-[#600E5B]"
+                    className={`p-[2px] text-[10px] w-[80px] rounded-lg inline-block text-center cursor-pointer ${task.completed ? "bg-[#B4FEC0] text-[#0E6128]" : "bg-[#FFDFFE] text-[#600E5B]"
                       }`}
                   >
                     {task.completed ? "Si" : "No"}

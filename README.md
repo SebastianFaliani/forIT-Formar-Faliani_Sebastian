@@ -27,19 +27,23 @@ Este proyecto es una aplicación desarrollada para el reto de ForIT 2025.
 
 ### Desktop
 
-Aquí puedes agregar una captura de pantalla de cómo se ve la aplicación en un escritorio.
 
-![Captura Desktop](/frontend/src/assets/Document/Desktop_Inicio.png)
-![Captura Desktop](/frontend/src/assets/Document/Desktop_Inicio.png)
-![Captura Desktop](/frontend/src/assets/Document/Desktop_Inicio.png)
-![Captura Desktop](/frontend/src/assets/Document/Desktop_Inicio.png)
-![Captura Desktop](/frontend/src/assets/Document/Desktop_Inicio.png)
+![Captura Desktop](/frontend/src/assets/Document/Desktop_Inicio.png){ width=300 }
+![Captura Desktop](/frontend/src/assets/Document/Desktop_Tareas.png){ width=300 }
+![Captura Desktop](/frontend/src/assets/Document/Desktop_Detalle.png){ width=300 }
+![Captura Desktop](/frontend/src/assets/Document/Desktop_Agregar_editar.png){ width=300 }
+![Captura Desktop](/frontend/src/assets/Document/Desktop_Estado.png){ width=300 }
+![Captura Desktop](/frontend/src/assets/Document/Desktop_Eliminar.png){ width=300 }
+![Captura Desktop](/frontend/src/assets/Document/Desktop_Filtros.png){ width=300 }
+![Captura Desktop](/frontend/src/assets/Document/Desktop_404.png){ width=300 }
 
 ### Mobile
 
-Aquí puedes agregar una captura de pantalla de cómo se ve la aplicación en dispositivos móviles.
 
-![Captura Mobile](ruta/a/tu/imagen/mobile.png)
+![Captura Mobile](/frontend/src/assets/Document/Mobile_Inicio.png)
+![Captura Mobile](/frontend/src/assets/Document/Mobile_Tareas.png)
+![Captura Mobile](/frontend/src/assets/Document/Mobile_Agregar_Editar.png)
+![Captura Mobile](/frontend/src/assets/Document/Mobile_Eliminar.png)
 
 
 

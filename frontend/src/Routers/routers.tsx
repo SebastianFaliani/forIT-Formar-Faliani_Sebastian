@@ -5,6 +5,7 @@ import TaskList from "../pages/TaskList/TaskList";
 import Home from "../pages/Home/Home";
 import TaskForm from "../pages/TaskForm/TaskForm";
 import TaskItem from "../pages/TaskItem/TaskItem";
+import NotFound from "../pages/NotFound/NotFound";
 
 const Routers = () => (
   <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
@@ -14,6 +15,7 @@ const Routers = () => (
         <Route path="/tasks" element={<TaskList />} />
         <Route path="/new-tasks" element={<TaskForm />} />
         <Route path="/detail" element={<TaskItem />} />
+        <Route  path="*" element={<NotFound/>} />
       </Routes>
     </Layout>
   </BrowserRouter>
