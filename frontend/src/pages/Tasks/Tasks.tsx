@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react"; 
 import { Link, useNavigate } from "react-router-dom";
 import { deleteTask, getTasks, Task, updateTask } from "../../services/taskServices";
 import puntos from "../../assets/tres_puntos.png";
@@ -14,7 +14,10 @@ const Tasks = () => {
   const [menuPosition, setMenuPosition] = useState({ x: 0, y: 0 });
   const [selectedTask, setSelectedTask] = useState<Task | null>(null);
 
-    useEffect(() => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const [tasksPerPage] = useState(15);
+
+  useEffect(() => {
     const fetchTasks = async () => {
       const data: any = await getTasks();
       setTasks(data.tasks);
@@ -25,7 +28,10 @@ const Tasks = () => {
 
   const handleButtonClick = (buttonLabel: string) => {
     setSelectedButton(buttonLabel);
+  
 
+    setCurrentPage(1);
+  
     if (buttonLabel === "Todas") {
       setTasks(tasksOrigin);
     } else if (buttonLabel === "Completadas") {
@@ -34,6 +40,7 @@ const Tasks = () => {
       setTasks(tasksOrigin.filter((task) => !task.completed));
     }
   };
+  
 
   const handleButtonTaskClick = async (task: Task) => {
     await updateTask(task.id, { ...task, completed: !task.completed });
@@ -46,9 +53,8 @@ const Tasks = () => {
       prevTasks.map((t) => (t.id === task.id ? { ...t, completed: !task.completed } : t))
     );
   };
-  
 
-   const handleMenuOpen = (event: React.MouseEvent, task: Task) => {
+  const handleMenuOpen = (event: React.MouseEvent, task: Task) => {
     setMenuPosition({ x: event.pageX, y: event.pageY });
     setSelectedTask(task);
     setMenuOpen(true);
@@ -62,12 +68,24 @@ const Tasks = () => {
     }
   };
 
-   const handleEditTask = async (task: Task) => {
+  const handleEditTask = async (task: Task) => {
     navigate("/new-tasks", { state: { isCreate: false, task } });
   };
 
+  const indexOfLastTask = currentPage * tasksPerPage;
+  const indexOfFirstTask = indexOfLastTask - tasksPerPage;
+  const currentTasks = tasks.slice(indexOfFirstTask, indexOfLastTask);
+
+  const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
+
+  // Calcular el número total de páginas
+  const pageNumbers = [];
+  for (let i = 1; i <= Math.ceil(tasks.length / tasksPerPage); i++) {
+    pageNumbers.push(i);
+  }
+
   return (
-    <main className="h-full p-4 bg-gray-100">
+    <main className="h-full p-4 bg-[#DCF4EE]">
       <div className="pb-2">
         <h1 className="text-2xl font-semibold mb-4">Lista de Tareas</h1>
         <div className="flex">
@@ -101,7 +119,7 @@ const Tasks = () => {
             </tr>
           </thead>
           <tbody>
-            {tasks.map((task) => (
+            {currentTasks.map((task) => (
               <tr key={task.id} className="border border-gray-100 hover:bg-gray-100">
                 <td className="px-4 py-2">{task.id}</td>
                 <td className="px-4 py-2">{task.title}</td>
@@ -133,6 +151,24 @@ const Tasks = () => {
             ))}
           </tbody>
         </table>
+
+        {/* Paginación */}
+        <div className="flex justify-center mt-4 mb-8">
+          <nav>
+            <ul className="flex">
+              {pageNumbers.map((number) => (
+                <li key={number} className="mx-2">
+                  <button
+                    onClick={() => paginate(number)}
+                    className={`p-2 text-sm rounded ${currentPage === number ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
+                  >
+                    {number}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
       </div>
     </main>
   );

@@ -47,11 +47,11 @@ const NewTask: React.FC = () => {
   };
 
   return (
-    <main className="h-full p-4 bg-gray-100/80">
+    <main className="h-full p-4 bg-[#DCF4EE]">
       <div className="pb-2">
         <h1 className="text-2xl font-semibold mb-4">Tareas</h1>
       </div>
-      <div className="overflow-x-auto bg-white">
+      <div className="overflow-x-auto bg-[#DCF4EE]">
         <div className="flex justify-between p-2">
           <div className="flex gap-4">
             <button

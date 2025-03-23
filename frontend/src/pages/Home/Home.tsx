@@ -29,7 +29,7 @@ const Home = () => {
   };
 
   return (
-    <main className="h-full p-4 bg-gray-100">
+    <main className="h-full p-4 bg-[#DCF4EE]">
       <div className="pb-2">
         <h1 className="text-2xl font-semibold mb-4">Inicio</h1>
         <div className="flex">
